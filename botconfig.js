@@ -29,7 +29,7 @@ module.exports = {
   Lavalink: {
     id: "Main",
     host: process.env.Lavalink,
-    port: 2095, // The port that lavalink is listening to. This must be a number!
+    port: 2333, // The port that lavalink is listening to. This must be a number!
     pass:  process.env.Lavapass,
     secure: false, // Set this to true if the lavalink uses SSL or you're hosting lavalink on repl.it
   },
