@@ -170,6 +170,7 @@ module.exports = {
           if (!player.playing && !player.paused && !player.queue.size)
             player.play();
           SongAddedEmbed.setAuthor(`Added to queue`, client.botconfig.IconURL);
+
           // SongAddedEmbed.setThumbnail(Searched.tracks[0].displayThumbnail());
           SongAddedEmbed.setDescription(
             `[${Searched.tracks[0].title}](${Searched.tracks[0].uri})`
