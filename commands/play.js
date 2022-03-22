@@ -297,7 +297,7 @@ module.exports = {
                 `${player.queue.size - 0}`,
                 true
               );
-            return interaction.send(SongAddedEmbed).then(SongAddedEmbed => {SongAddedEmbed.delete(30000)});
+            return interaction.send(SongAddedEmbed);
 
           case "SEARCH_RESULT":
             player.queue.add(TrackUtils.build(Searched.tracks[0], member.user));
@@ -316,7 +316,7 @@ module.exports = {
                 `${player.queue.size - 0}`,
                 true
               );
-            return interaction.send(SongAddedEmbed).then(SongAddedEmbed => {SongAddedEmbed.delete(30000)});
+            return interaction.send(SongAddedEmbed);
 
           case "PLAYLIST_LOADED":
             let songs = [];
@@ -393,7 +393,7 @@ module.exports = {
                 `${player.queue.size - 0}`,
                 true
               );
-            return interaction.send(SongAddedEmbed).then(SongAddedEmbed => {SongAddedEmbed.delete(30000)});
+            return interaction.send(SongAddedEmbed);
 
            case "PLAYLIST_LOADED":
             player.queue.add(res.tracks);
@@ -418,7 +418,7 @@ module.exports = {
               })}\``,
               false
             );
-          return interaction.send(SongAddedEmbed).then(SongAddedEmbed => {SongAddedEmbed.delete(30000)});
+          return interaction.send(SongAddedEmbed);
           case "SEARCH_RESULT":
             const track = res.tracks[0];
             player.queue.add(track);
@@ -446,7 +446,7 @@ module.exports = {
                   true
                 );
               player.play();
-              return interaction.send(SongAddedEmbed).then(SongAddedEmbed => {SongAddedEmbed.delete(30000)});
+              return interaction.send(SongAddedEmbed);
             } else {
               let SongAddedEmbed = new MessageEmbed();
               SongAddedEmbed.setAuthor(
@@ -469,7 +469,7 @@ module.exports = {
                   `${player.queue.size - 0}`,
                   true
                 );
-              interaction.send(SongAddedEmbed).then(SongAddedEmbed => {SongAddedEmbed.delete(30000)});
+              interaction.send(SongAddedEmbed);
             }
         }
       }
