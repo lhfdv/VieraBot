@@ -317,7 +317,7 @@ module.exports = {
                 `${player.queue.size - 0}`,
                 true
               );
-            return interaction.send(SongAdded);
+              return interaction.send(SongAddedEmbed).then(interaction => interaction.delete({timeout: 5000}));
 
           case "PLAYLIST_LOADED":
             let songs = [];
@@ -396,7 +396,7 @@ module.exports = {
                 `${player.queue.size - 0}`,
                 true
               );
-            return interaction.send(SongAddedEmbed);
+            return interaction.send(SongAddedEmbed).then(interaction => interaction.delete({timeout: 5000}));
 
            case "PLAYLIST_LOADED":
             player.queue.add(res.tracks);
@@ -451,7 +451,7 @@ module.exports = {
                   true
                 );
               player.play();
-              return interaction.send(SongAddedEmbed);
+              return interaction.send(SongAddedEmbed).then(interaction => interaction.delete({timeout: 5000}));
             } else {
               let SongAddedEmbed = new MessageEmbed();
               SongAddedEmbed.setAuthor(
@@ -475,7 +475,7 @@ module.exports = {
                   `${player.queue.size - 0}`,
                   true
                 );
-              interaction.send(SongAddedEmbed);
+              interaction.send(SongAddedEmbed).then(interaction => interaction.delete({timeout: 5000}));
             }
         }
       }
