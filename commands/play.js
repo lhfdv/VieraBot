@@ -93,7 +93,7 @@ module.exports = {
             false
           );
           //SongAddedEmbed.addField("Playlist duration", `\`${prettyMilliseconds(Searched.tracks, { colonNotation: true })}\``, false)
-          Searching.edit(SongAddedEmbed).then(msg => msg.delete(50000));
+          Searching.edit(SongAddedEmbed).then(msg => msg.delete({timeout: 10000}));
         } else if (Searched.loadType.startsWith("TRACK")) {
           player.queue.add(
             TrackUtils.build(Searched.tracks[0], message.author)
@@ -116,7 +116,7 @@ module.exports = {
               `${player.queue.size - 0}`,
               true
             );
-          Searching.edit(SongAddedEmbed).then(msg => msg.delete(50000));
+          Searching.edit(SongAddedEmbed).then(msg => msg.delete({timeout: 10000}));
         } else {
           return client.sendTime(
             message.channel,
@@ -164,7 +164,7 @@ module.exports = {
             })}\``,
             false
           );
-          Searching.edit(SongAddedEmbed).then(msg => msg.delete(50000));
+          Searching.edit(SongAddedEmbed).then(msg => msg.delete({timeout: 10000}));
         } else {
           player.queue.add(Searched.tracks[0]);
           if (!player.playing && !player.paused && !player.queue.size)
@@ -189,7 +189,7 @@ module.exports = {
               `${player.queue.size - 0}`,
               true
             );
-          Searching.edit(SongAddedEmbed).then(msg => msg.delete(50000));
+          Searching.edit(SongAddedEmbed).then(msg => msg.delete({timeout: 10000}));
         }
       }
     } catch (e) {
