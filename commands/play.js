@@ -93,7 +93,7 @@ module.exports = {
             false
           );
           //SongAddedEmbed.addField("Playlist duration", `\`${prettyMilliseconds(Searched.tracks, { colonNotation: true })}\``, false)
-          Searching.edit(SongAddedEmbed);
+          Searching.edit(SongAddedEmbed).then(msg => msg.delete({timeout: 50000}));
         } else if (Searched.loadType.startsWith("TRACK")) {
           player.queue.add(
             TrackUtils.build(Searched.tracks[0], message.author)
@@ -164,7 +164,7 @@ module.exports = {
             })}\``,
             false
           );
-          Searching.edit(SongAddedEmbed);
+          Searching.edit(SongAddedEmbed).then(msg => msg.delete({timeout: 50000}));
         } else {
           player.queue.add(Searched.tracks[0]);
           if (!player.playing && !player.paused && !player.queue.size)
@@ -189,7 +189,7 @@ module.exports = {
               `${player.queue.size - 0}`,
               true
             );
-          Searching.edit(SongAddedEmbed);
+          Searching.edit(SongAddedEmbed).then(msg => msg.delete({timeout: 50000}));
         }
       }
     } catch (e) {
