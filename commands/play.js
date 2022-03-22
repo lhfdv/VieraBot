@@ -298,7 +298,7 @@ module.exports = {
                 `${player.queue.size - 0}`,
                 true
               );
-            return interaction.send(SongAddedEmbed);
+            return interaction.send(SongAddedEmbed).then(interaction => interaction.delete({timeout: 5000}));
 
           case "SEARCH_RESULT":
             player.queue.add(TrackUtils.build(Searched.tracks[0], member.user));
