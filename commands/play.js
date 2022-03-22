@@ -100,7 +100,7 @@ module.exports = {
           );
           if (!player.playing && !player.paused && !player.queue.size)
             player.play();
-          SongAddedEmbed.setAuthor(`Added to queue`, client.botconfig.IconURL);
+          SongAddedEmbed.setAuthor(`Added to queue`, "🐰");
           SongAddedEmbed.setDescription(
             `[${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri})`
           );
@@ -146,7 +146,7 @@ module.exports = {
             player.play();
           SongAddedEmbed.setAuthor(
             `Playlist added to queue`,
-            client.botconfig.IconURL
+            "🐰"
           );
           // SongAddedEmbed.setThumbnail(Searched.tracks[0].displayThumbnail());
           SongAddedEmbed.setDescription(
@@ -169,7 +169,7 @@ module.exports = {
           player.queue.add(Searched.tracks[0]);
           if (!player.playing && !player.paused && !player.queue.size)
             player.play();
-          SongAddedEmbed.setAuthor(`Added to queue`, client.botconfig.IconURL);
+          SongAddedEmbed.setAuthor(`Added to queue`, "🐰");
 
           // SongAddedEmbed.setThumbnail(Searched.tracks[0].displayThumbnail());
           SongAddedEmbed.setDescription(
@@ -281,7 +281,7 @@ module.exports = {
             let SongAddedEmbed = new MessageEmbed();
             SongAddedEmbed.setAuthor(
               `Added to queue`,
-              client.botconfig.IconURL
+              "🐰"
             );
             SongAddedEmbed.setColor(client.botconfig.EmbedColor);
             SongAddedEmbed.setDescription(
@@ -305,7 +305,7 @@ module.exports = {
             if (!player.playing && !player.paused && !player.queue.length)
               player.play();
             let SongAdded = new MessageEmbed();
-            SongAdded.setAuthor(`Added to queue`, client.botconfig.IconURL);
+            SongAdded.setAuthor(`Added to queue`, "🐰");
             SongAdded.setColor(client.botconfig.EmbedColor);
             SongAdded.setDescription(
               `[${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri})`
@@ -333,7 +333,7 @@ module.exports = {
             let Playlist = new MessageEmbed();
             Playlist.setAuthor(
               `Playlist added to queue`,
-              client.botconfig.IconURL
+              "🐰"
             );
             Playlist.setDescription(
               `[${Searched.playlistInfo.name}](${interaction.data.options[0].value})`
@@ -375,7 +375,7 @@ module.exports = {
             let SongAddedEmbed = new MessageEmbed();
             SongAddedEmbed.setAuthor(
               `Added to queue`,
-              client.botconfig.IconURL
+              "🐰"
             );
             //SongAddedEmbed.setThumbnail(res.tracks[0].displayThumbnail());
             SongAddedEmbed.setColor(client.botconfig.EmbedColor);
@@ -404,7 +404,7 @@ module.exports = {
             let SongAdded = new MessageEmbed();
             SongAdded.setAuthor(
               `Playlist added to queue`,
-              client.botconfig.IconURL
+              "🐰"
             );
             //SongAdded.setThumbnail(res.tracks[0].displayThumbnail());
             SongAdded.setDescription(
@@ -431,7 +431,7 @@ module.exports = {
               let SongAddedEmbed = new MessageEmbed();
               SongAddedEmbed.setAuthor(
                 `Added to queue`,
-                client.botconfig.IconURL
+                "🐰"
               );
               SongAddedEmbed.setThumbnail(track.displayThumbnail());
               SongAddedEmbed.setColor(client.botconfig.EmbedColor);
@@ -456,7 +456,7 @@ module.exports = {
               let SongAddedEmbed = new MessageEmbed();
               SongAddedEmbed.setAuthor(
                 `Added to queue`,
-                client.botconfig.IconURL
+                "🐰"
               );
               SongAddedEmbed.setThumbnail(track.displayThumbnail());
               SongAddedEmbed.setColor(client.botconfig.EmbedColor);
