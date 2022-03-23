@@ -161,7 +161,7 @@ module.exports = {
             })}\``,
             false
           );
-          Searching.edit(SongAddedEmbed);
+          Searching.edit(SongAddedEmbed).then(msg => msg.delete({timeout: 2000}));
         } else {
           player.queue.add(Searched.tracks[0]);
           if (!player.playing && !player.paused && !player.queue.size)

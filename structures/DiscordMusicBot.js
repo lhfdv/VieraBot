@@ -186,7 +186,6 @@ class DiscordMusicBot extends Client {
           .setAuthor("The queue has ended")
           .setColor(this.botconfig.EmbedColor)
           .setTimestamp();
-        client.channels.cache.get(player.textChannel).then(msg => msg.delete({timeout: 2000}));
         client.channels.cache.get(player.textChannel).send(QueueEmbed);
         if (!this.botconfig["24/7"]) player.destroy();
       });
