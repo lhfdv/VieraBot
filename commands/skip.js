@@ -75,7 +75,7 @@ module.exports = {
       if (!player)
         return client.sendTime(
           interaction,
-          "❌ | **Nothing is playing right now...**"
+          "❌ | **Nothing is playing right now**"
         );
       console.log(interaction.data);
       if (
