@@ -116,7 +116,7 @@ module.exports = {
               `${player.queue.size - 0}`,
               true
             );
-          Searching.edit(SongAddedEmbed);
+          Searching.edit(SongAddedEmbed).then(msg => msg.delete({timeout: 2000}));
         } else {
           return client.sendTime(
             message.channel,
