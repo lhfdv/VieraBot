@@ -43,7 +43,7 @@ module.exports = {
     if (!CheckNode || !CheckNode.connected) {
       return client.sendTime(
         message.channel,
-        "❌ | **Lavalink node not connected**"
+        "❌ | **Complain with Harumi**"
       );
     }
     const player = client.Manager.create({
@@ -93,14 +93,14 @@ module.exports = {
             false
           );
           //SongAddedEmbed.addField("Playlist duration", `\`${prettyMilliseconds(Searched.tracks, { colonNotation: true })}\``, false)
-          Searching.edit(SongAddedEmbed).then(msg => msg.delete({timeout: 1000}));
+          Searching.edit(SongAddedEmbed).then(msg => msg.delete({timeout: 2000}));
         } else if (Searched.loadType.startsWith("TRACK")) {
           player.queue.add(
             TrackUtils.build(Searched.tracks[0], message.author)
           );
           if (!player.playing && !player.paused && !player.queue.size)
             player.play();
-          SongAddedEmbed.setAuthor(`Added to queue`, client.botconfig.IconURL);
+          SongAddedEmbed.setAuthor(`Added to queue`);
           SongAddedEmbed.setDescription(
             `[${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri})`
           );
@@ -116,11 +116,11 @@ module.exports = {
               `${player.queue.size - 0}`,
               true
             );
-          Searching.edit(SongAddedEmbed).then(msg => msg.delete({timeout: 1000}));
+          Searching.edit(SongAddedEmbed);
         } else {
           return client.sendTime(
             message.channel,
-            "**No matches found for - **" + SearchString
+            "**No matches found for **" + SearchString
           );
         }
       } else {
@@ -128,13 +128,13 @@ module.exports = {
         if (!player)
           return client.sendTime(
             message.channel,
-            "❌ | **Nothing is playing right now...**"
+            "❌ | **Nothing is playing right now.**"
           );
 
         if (Searched.loadType === "NO_MATCHES")
           return client.sendTime(
             message.channel,
-            "**No matches found for - **" + SearchString
+            "**No matches found for **" + SearchString
           );
         else if (Searched.loadType == "PLAYLIST_LOADED") {
           player.queue.add(Searched.tracks);
@@ -144,10 +144,7 @@ module.exports = {
             player.queue.totalSize === Searched.tracks.length
           )
             player.play();
-          SongAddedEmbed.setAuthor(
-            `Playlist added to queue`,
-            client.botconfig.IconURL
-          );
+          SongAddedEmbed.setAuthor(`Playlist added to queue`);
           // SongAddedEmbed.setThumbnail(Searched.tracks[0].displayThumbnail());
           SongAddedEmbed.setDescription(
             `[${Searched.playlist.name}](${SearchString})`
@@ -164,7 +161,7 @@ module.exports = {
             })}\``,
             false
           );
-          Searching.edit(SongAddedEmbed).then(msg => msg.delete({timeout: 1000}));
+          Searching.edit(SongAddedEmbed);
         } else {
           player.queue.add(Searched.tracks[0]);
           if (!player.playing && !player.paused && !player.queue.size)
@@ -189,14 +186,14 @@ module.exports = {
               `${player.queue.size - 0}`,
               true
             );
-          Searching.edit(SongAddedEmbed).then(msg => msg.delete({timeout: 1000}));
+          Searching.edit(SongAddedEmbed);
         }
       }
     } catch (e) {
       console.log(e);
       return client.sendTime(
         message.channel,
-        "**No matches found for - **" + SearchString
+        "**No matches found for **" + SearchString
       );
     }
   },
@@ -240,7 +237,7 @@ module.exports = {
       if (!CheckNode || !CheckNode.connected) {
         return client.sendTime(
           interaction,
-          "❌ | **Lavalink node not connected**"
+          "❌ | **Complain with Harumi**"
         );
       }
 
@@ -305,7 +302,7 @@ module.exports = {
             if (!player.playing && !player.paused && !player.queue.length)
               player.play();
             let SongAdded = new MessageEmbed();
-            SongAdded.setAuthor(`Added to queue`, client.botconfig.IconURL);
+            SongAdded.setAuthor(`Added to queue`);
             SongAdded.setColor(client.botconfig.EmbedColor);
             SongAdded.setDescription(
               `[${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri})`
